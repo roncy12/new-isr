@@ -1,0 +1,254 @@
+@import "colors";
+
+
+/**********HEADER**********/
+ [href]:focus{
+    outline: transparent !important;
+}
+.header{
+    box-shadow: 0 4px 20px -10px #222;
+
+    .head-container {
+        display: flex;
+        width: 95%;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: space-between;
+        padding: 1.5rem 0;
+        position: relative;
+        @media(max-width: 801px){    
+            display: flex;
+            position: unset;
+            width: auto;
+            margin: 0px auto;
+            padding: 0rem 0px;
+            justify-content: center;
+         }
+         .navPages-container {
+            @media all and (min-width: 1024px) and (max-width: 1280px) { 
+                width: 70%;
+            }
+            @media all and (min-width: 801px) and (max-width: 1023px) { 
+                width: 75%
+            }
+        }
+        .navuser-right{
+            @media all and (min-width: 801px) and (max-width: 1023px) { 
+                width: 25%;
+            }
+        }
+
+
+    }
+
+    .header-logo-image-container {
+        min-height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 70%;
+    }
+    .header-logo-image {
+        max-height: 80px;
+        vertical-align: middle;
+    }
+
+    .header-logo {
+        margin: 0;
+    }
+    
+    a.navPages-action {
+        color: $navsColor;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: 'Almarai', sans-serif;
+        font-size: 18px;
+        text-transform: capitalize;
+        padding: 0.78571rem 1.14286rem 0.25rem;
+        &:hover{
+            text-decoration: none;
+        }
+        @media (min-width: 801px){  padding: 0.78571rem 1.14286rem 1.14286rem; }
+    }
+
+    .navUser {
+        img.fas.fa-search:hover {
+            background: transparent;
+        }
+        button#quick-search-expand:focus {
+            background: transparent;
+        }
+        
+        @media screen and (max-width: 1260px) {
+            width: 100%; padding: 1.5rem 1.5rem;
+        }
+        @media (min-width: 801px){ padding: 0; }
+        .navUser-action {
+            color: $navsColor;
+            font-weight: 800;
+        }
+        span.countPill.cart-quantity {
+            background-color: #dd2424;
+            position: absolute;
+            top: 3px;
+            right: -5px;
+            @media screen and (max-width:800px){
+                    top: 26px;
+                    right: 16px;
+                }
+            }
+          
+        }
+
+} 
+// END OF HEADER SECTION
+
+// sticky & unsticky
+@media (min-width:801px) {
+	
+	#myHeader{
+		width:100%;
+		&.sticky {
+			position: fixed;
+			border: 0;
+			top:0;
+			left:0;
+			width: 100%;
+			background: white;
+			border-bottom: 1px solid #aaa;	
+		}		
+		&.unsticky {
+			position: relative !important;
+			top:auto !important;
+			left:auto !important;
+		}
+
+	}
+	
+}
+
+
+// BODY BANNER 
+body {
+    
+    &.body-home .body {
+        // margin-top: 0;
+    }   
+    &.body-pages .body{
+        @media (min-width: 801px){
+            margin-top: 0;
+        }
+    }
+}
+
+.heroCarousel{
+	.heroCarousel-slide .heroCarousel-image {
+		object-fit: cover;
+        // @media (max-width: 551px){ object-fit: contain;  }
+	}
+    @media (max-width: 551px){ margin-bottom: 0.5rem;}
+	.heroCarousel-content{
+        text-align: left;
+        width: 85%;
+
+		@media (min-width: 551px){
+		background-color: transparent;
+		* { color:#FFF;  font-weight: bold;  }
+		.heroCarousel-title{  line-height: 1; font-size: 56px; color: #fff; font-weight: 400; text-transform: inherit; font-family: Almarai!important; } 
+        .heroCarousel-description{ margin:8px 0 0 0; } 
+        .button--primary{background:$white;border:1px solid $white;color:$navsColor;font-weight:700;border-radius:5px}
+		}
+        @media (max-width: 551px){ text-align: center; width: 100%; padding: 3rem 1.5rem 3rem;
+            & .heroCarousel-title, & .heroCarousel-description{ color: $navyblue; font-size:18px;}
+            & .heroCarousel-title{font-size: 38px; line-height: 1; font-family: Almarai!important;}
+            & .heroCarousel-description{line-height: 1; margin-top: 1rem;}
+            & .heroCarousel-action{text-decoration:none;background:$navyblue;border:1px solid $navyblue; color:#fff;font-weight:700;border-radius:8px;padding: 25px 35px;}
+        }   
+	}
+}
+	
+/************* FOOTER ****************/
+.footer {
+    border-top: $transparent;
+    position: relative;
+    background: $white;
+    background-color: $white;
+    padding: 0;
+
+    .footer-flex{
+        background: $whiteSmoke;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+    }
+    .footer-info {
+        margin: 0 auto;
+        max-width: none;
+        width: 75%;
+
+
+        .like-us {
+            font-weight: 800;
+            color: #132448 !important;
+            width: auto;
+            text-decoration: none;
+            padding-left: 0.5em;
+        }
+        .btn-a-con {
+            border: 1px solid #e2e8ed;
+            background-color: #e2e8ed;
+            padding: 17px 25px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+         @media screen and (max-width: 551px) {
+            justify-content: center;
+         }
+        
+        }
+      
+    }
+    .footer-content {
+        width: 75%;
+        margin: 0 auto;
+        padding: 1rem 0;
+    }
+    @media (min-width: 801px){
+        .footer-info-col--small {
+            width: 25%;
+        }
+    }
+}
+
+
+// END OF FOOTER SECTION
+
+// Homepage Section
+.us-banner-description{
+    @media screen  and (max-width: 1425px) { width: 90% !important; }
+    & h3{font-size: 24px !important;
+    }
+}
+.banner-div1{
+    @media screen  and (max-width: 1280px) { background-size: unset !important; }  }
+.usbanner-div img{
+    @media screen  and (max-width: 1200px) { object-fit: cover; object-position: left; }  
+}
+.us-banner-description p br {
+    // @media only screen and (min-width: 120.063em) {  display: none; }
+   @media screen and (max-width: 1200px) {display: none !important; }
+   @media screen and (max-width: 576px) { display: none !important; }}
+.banner-most-affordable{
+    @media screen  and (max-width: 1200px) {background-position: left !important;}
+    @media screen  and (max-width: 480px) {background: transparent !important; margin-top: 0!important;}
+}
+.most-affordable-desc{
+    @media screen  and (max-width: 480px) {text-align: center; width: 100% !important;}
+}
+.most-affordable-desc h2{color: $navyblue;font-size: 36px;font-family: 'Almarai';}
+a.mattress-button-aff{background-color:#132448;color:#fff;text-decoration:none;padding:12px 40px;border-radius:5px;font-weight:700}
+
+
+.FAQS-categ.green-faq-categ div#faqaccordion .card-header:hover{
+    padding: 2rem 0;
+}

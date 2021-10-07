@@ -1,0 +1,3 @@
+{
+  "colors.scss": "$blueColor : rgb(91, 110, 124);\r\n$transparent: transparent;\r\n$navsColor: #132448;\r\n$navyblue: #132448;\r\n$lightnavy: #174567;\r\n$white: #ffffff;\r\n$lightBlue: #00d2ff;\r\n$cartCount: #dd2424; \r\n$slickarrow: #354669;\r\n$txtGray: #888;\r\n$whiteSmoke: #e2e8ed;"
+}

@@ -1,0 +1,102 @@
+<script type="text/javascript" >
+
+    var $animation_elements = $('.animation-element');
+    var $window = $(window);
+    var refresherIndex;
+    
+    function check_if_in_view() {
+      var window_height = $window.height();
+      var window_top_position = $window.scrollTop();
+      var window_bottom_position = (window_top_position + window_height);
+
+      $.each($animation_elements, function() {
+        var $element = $(this);
+        var element_height = $element.outerHeight();
+        var element_top_position = $element.offset().top;
+        var element_bottom_position = (element_top_position + element_height);
+     
+        //check to see if this current container is within viewport
+        if ((element_bottom_position >= window_top_position) &&
+            ((element_top_position+60) <= window_bottom_position)) {
+            $element.addClass('in-view');
+            $element.addClass('_refresher'); 
+            var refresherIndex = setInterval(function(){ _view_refresher($element); }, 300000);
+
+        } else {
+            $element.removeClass('in-view');
+            $element.removeClass('_refresher'); 
+            
+            clearInterval(refresherIndex);
+        }
+      });
+    }
+
+    function _view_refresher($element){
+        if($element.hasClass( "_refresher" )){
+            $element.removeClass('in-view');
+            $refresher = setTimeout(function() {
+                $element.addClass('in-view');
+            }, 250);
+            
+        }	
+    }
+
+    $window.on('scroll resize', 
+        function(){
+            if($window.width() > 800){
+                check_if_in_view();
+            }
+        }
+    );
+    $window.trigger('scroll');
+
+
+
+    window.onscroll = function() { myFunction() };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (document.body.scrollTop > sticky || document.documentElement.scrollTop > sticky) {
+            header.classList.add("sticky");
+        }  else {
+            header.classList.remove("sticky");
+        }
+    }
+
+
+    $('img[data-enlargeable]').addClass('img-enlargeable').click(function() {
+  var src = $(this).attr('src');
+  var modal;
+
+  function removeModal() {
+    modal.remove();
+    $('body').off('keyup.modal-close');
+  }
+  modal = $('<div>').css({
+    background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+    backgroundSize: 'contain',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    zIndex: '10000',
+    top: '0',
+    left: '0',
+    cursor: 'zoom-out'
+  }).click(function() {
+    removeModal();
+  }).appendTo('body');
+  //handling ESC
+  $('body').on('keyup.modal-close', function(e) {
+    if (e.key === 'Escape') {
+      removeModal();
+    }
+  });
+});
+    </script>
+
+
+
+
+
